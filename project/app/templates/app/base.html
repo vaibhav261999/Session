@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title></title>
+
+</head>
+<style>
+  .hlo {
+    display: flex;
+    justify-content: space-evenly;
+    width: 230px;
+    height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    align-items: center;
+    margin: 0;
+
+  }
+
+  .hlo img {
+    width: 50px;
+    margin: 0px;
+  }
+  .hlo a{
+    background-color: #ff8900;
+    border-radius: 20px;
+    color: #fff; 
+    margin: 0;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 3px;
+    text-align: center;
+    box-shadow: 0 0 10px 0 black;
+  }
+  .hlo p{
+    padding: 0;
+    margin: 0;
+  
+  }
+
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          <a class="nav-link" href="{% url 'Signup' %}">Sign-up</a>
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+          <a class="nav-link" href="{% url 'Contact' %}">Contact</a>
+          <a class="nav-link" href="{% url 'Services' %}">Services</a>
+
+        
+        </div>
+      </div>
+      <div class="hlo"><img src="{% static 'images\user_2.png' %}">
+        <p>{{ guest | default:'welcome guest'}}</p>
+
+        {% if guest %}
+          <a href="{% url 'delete' %}">Log Out</a>
+
+          {% else %}
+          <a class="nav-link" href="{% url 'Login' %}">Log In</a>
+          
+        {% endif %}
+    
+        
+        
+        
+      </div>
+      
+     
+
+    </div>
+  </nav>
+
+  {% block content %}
+
+
+  {% endblock %}
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
